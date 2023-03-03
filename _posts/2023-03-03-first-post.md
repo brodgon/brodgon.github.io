@@ -2,6 +2,8 @@
 layout: post
 title: Landing
 subtitle: Learning how to post
+social-share: false
+readtime: true
 ---
 
 Hello again!

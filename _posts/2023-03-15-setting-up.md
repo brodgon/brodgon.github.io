@@ -1,6 +1,6 @@
 ---
 layout: post
-title: P1 Follow Line
+title: Practice 1 - Follow-Line
 subtitle: Week 1- Setting up the simulator and first contact with robotics
 social-share: false
 readtime: true
@@ -48,7 +48,7 @@ After doing this, we have useful information to start dealing with the intellige
 Although the main goal is to implement a PID controller, I found interesting to create a simple robot based on scenarios. To do this, the first step was to model an action-reaction table based on the information perceived by the robot.
 
 Since we have modeled the number of pixels from left and right till we find the line, we will compute a ratio with it, precisely:
-$$ratio = \frac{number of pixels located right to line}{ number of pixels located left to line}$$
+$$ratio = \frac{number \quad of \quad pixels \quad located \quad right \quad to \quad line}{number \quad of \quad pixels \quad located \quad left \quad to \quad line}$$
 
 Depending on the value of this ratio we can model if we have more or less pixels on one side or the other and, therefore, make a decision. Specifically:
 - If $ratio < 1$ the car will be on the left side of the image, that is, there are more pixels on the left than on the right side. In order to correct this, we want to turn right in order to approach the line.

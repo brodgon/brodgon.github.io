@@ -62,7 +62,7 @@ With this information, we modeled 7 possible scenarios depending on different ra
 
 | Ratio | Linear Velocity | Angular Velocity |
 | :------ |:--- | :--- |
-| ($\infty$,0.1] | 1.5 | -0.9 |
+| (- $\infty$,0.1] | 1.5 | -0.9 |
 | (0.1, 0.7] |3 | -0.5|
 | (0.7,0.9] | 9 | -0.1 |
 | (0.9,1.2] | 12 | 0 | 

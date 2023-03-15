@@ -1,7 +1,7 @@
 ---
 layout: post
-title: PRACTICE 1: Follow-line F1
-subtitle: Week 1- Setting up the simulator and first contact with robotics 
+title: P1 Follow Line
+subtitle: Week 1- Setting up the simulator and first contact with robotics
 social-share: false
 readtime: true
 ---
@@ -35,9 +35,11 @@ With that running, we will enter Unibotics platform, select the Local backend op
 As mentioned, the goal of this first practice is to program a robot based on a PID controller which can follow a line to complete a race circuit. The first challenge we need to approach will therefore be the **line detector**.
 
 To familiarize with the image seen by the robot, the first step is to display it on the screen. Doing this, we realize the line to chase possess a pure red color, which is not seen on other objects of the circuit. Taking this in consideration, the easiest way to track the line will be to implement a **color filter**, which, in order to make it more robust to illumination changes, will be implemented in the HSV color space. After some research, it was discovered that red color in the RGB scale corresponds to the (0,100,100) value in the HSV space; therefore, a range around this value was set to segment the line, obtaining a binary mask similar to the one shown below this text. In order not to lose information related to circuit and for better visualization purposes, the obtained mask was blended with the image seen by robot.
+
 ![Line Detection](https://github.com/brodgon/brodgon.github.io/blob/master/docs/fig%20.png?raw=true)
 
 With the line detected, we want to determine its centroid to be able to estimate the position where the car should be. The approach to do this is pretty simple. Since the red line always fall around the bottom-half of the image, we will select a row around it and, based on it, we will count the number of pixels until we find the first white pixel on the mask (starting from right and left mask borders). With this information, we will just need to calculate a simple mean in order to get the center of the line and plot it with a bright color!
+
 ![Centroid](https://github.com/brodgon/brodgon.github.io/blob/master/docs/centroid.png?raw=true)
 
 After doing this, we have useful information to start dealing with the intelligence of our robot!
@@ -46,13 +48,14 @@ After doing this, we have useful information to start dealing with the intellige
 Although the main goal is to implement a PID controller, I found interesting to create a simple robot based on scenarios. To do this, the first step was to model an action-reaction table based on the information perceived by the robot.
 
 Since we have modeled the number of pixels from left and right till we find the line, we will compute a ratio with it, precisely:
-$$ ratio = \frac{number of pixels located right to line}{ number of pixels located left to line}$$
+$$ratio = \frac{number of pixels located right to line}{ number of pixels located left to line}$$
 
 Depending on the value of this ratio we can model if we have more or less pixels on one side or the other and, therefore, make a decision. Specifically:
 - If $ratio < 1$ the car will be on the left side of the image, that is, there are more pixels on the left than on the right side. In order to correct this, we want to turn right in order to approach the line.
 - If $ratio > 1$ the car will be on the right side of the image, that is, there are more pixels on the right side than on the left one. Same as before, since we want to get closer to the line, we will turn left.
 - If $ratio=1$ it means we have the same pixels right and left, meaning we are centered. This will be the preferred state.
-- 
+
+
 Having this idea in mind, we can think further; precisely, we can consider the actual value of the ratio. If this value is really small or really big (with respect to one) it will mean we are closer to the walls of the circuit, and therefore, the shift needs to be more drastic. On the other hand, the closest to one the ratio is, the smaller the turn. In order to model the shifts, we will use linear and angular velocity of the robot. 
 
 With this information, we modeled 7 possible scenarios depending on different ratio ranges. Scenarios were modeled based on trial and error:

@@ -85,21 +85,21 @@ Once the PID controller function is developed, the first controller tried was a 
 
 For this purpose, we set the differential and integral gains to 0 and **adjust the proportional gain** (i.e., $K_{p}$) to modulate the angular velocity. The gain was adjust experimentally, realizing that, really small constants result in almost no effect on the robot, while big constants result on enormous oscillations.
 
-Two cases were tried. Firstly, we set a constant linear speed ( at  ) which, using a p of blablabla resulted in the completion of the circuit in x minutes. To try to reduce this time, we set different linear speeds depending on the value of the angular velocity. In this case, circuit was completed in tal min, however, oscillations were huge.
+Two cases were tried. Firstly, we set a constant linear speed (at 4) which, using a gain of 0.005 resulted in the completion of the circuit in 3:50 minutes. As seen on the gif below, The F1 shows some small fluctuations, but rapidly reach the origin. Although it is stable, in order to try to reduce the lap time, we set different linear speeds depending on the value of the angular velocity. In this case, circuit was completed in 3:40 min, that is, we gained 10, however, oscillations were bigger, probably, due to the linear speed shifts..
 
 ### TRIAL II: PD CONTROLLER
 
 To try to improve the performance of simple P controllers, we decided to use the derivative term, that is, consider the evolution of the error. For this purpose, we left the integral term to 0 and adjust the proportional and derivative gains.
 
-Just as before, we first try to maintain constant linear speed, and then, try to modulate it depending on the computed angular velocity. 
-
+Just as before, we first try to maintain constant linear speed, and then, try to modulate it depending on the computed angular velocity. With a constant speed of 5.5, the circuit was completed in around 2:14 minutes with a pretty stable position. Its behaviour on curve was sharp, however, more fluctuations where seen on straight lines, where it took some more time to reach the equilibrium. On the other hand, changing linear speed show no real improvement, resulting in bigger fluctuations and, therefore, a bigger time (3:20min).
 
 
 ### TRIAL III: PID CONTROLLER
 
-Last, but not least, we introduced the integral component, in order to try to obtain the perfect controller.  As always, constants were adjusted by trial and error for our two typical scenarios: constant and modulating linear speed.
+Last, but not least, we introduced the integral component, in order to try to obtain the perfect controller.  As always, constants were adjusted by trial and error for our two typical scenarios: constant and modulating linear speed. Surprisingly better results were obtained when using this type of controllers. Precisely, using the same parameters, we got laps of around 2 minutes, both for constant speed (1:48 min) and modulating linear speed (2:29 min). We realized integral component needed to be kept as small as possible to get better results.
 
-We realized integral component needed to be kept as small as possible to get better results.
+As seen, behaviour is usually better when linear speed is mantained constant, showing less fluctuations in straight lines and smooth behaviours in curves. However, using this approach we are not getting all the potential of the car when we are positioned on a straight line. We will therefore need to find a way to solve this problem.
+
 
 ### TRIAL IV: CONTROL BASED ON POSITION
 

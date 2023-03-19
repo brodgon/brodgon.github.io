@@ -130,9 +130,7 @@ Since we have all the points delineating the line, we will take the highest pixe
 
 For both controllers, the linear speed was maintained constant. This will result in more stable laps. Additionally, in order to avoid possible circuit exits, the straight line (or stable position) was constrained a little bit more: the car will only activate the fastest mode if we are around the ideal point and if the angular velocity of the previous loop is small enough.
 
-The result of this approach is illustrated on the video [found clicking on this link](https://urjc-my.sharepoint.com/:v:/g/personal/b_rodriguezg_2018_alumnos_urjc_es/EbzIf7PitTVIm-iw9wlH9fMBH0IhHyuLRf731LQizTqGww?e=gNtytn) or, ideally, shown below.
-
-! [found clicking on this link](https://urjc-my.sharepoint.com/:v:/g/personal/b_rodriguezg_2018_alumnos_urjc_es/EbzIf7PitTVIm-iw9wlH9fMBH0IhHyuLRf731LQizTqGww?e=gNtytn)
+The result of this approach is illustrated on the video [found clicking on this link](https://urjc-my.sharepoint.com/:v:/g/personal/b_rodriguezg_2018_alumnos_urjc_es/EbzIf7PitTVIm-iw9wlH9fMBH0IhHyuLRf731LQizTqGww?e=gNtytn).
 
 The combination of the two controllers deployed resulted in a lap where the robot behaves nicely on straight lines, activating the straight-line controller, and seems to be pretty stable on the steepest curves. However, a lot of fluctuations are seen on constant curves. This behavior is probably due to the fact that, when the curve is constant, the robot wants to shift controller, that is, it thinks we are entering on a straight line, and therefore, activates the straight line controller. When the straight-line controller is activated on a curve, the F1 activates its fast mode which is not designed to turn drastically so, when we want to correct it, we need to turn a lot, making the robot to fluctuate. 
 

@@ -98,7 +98,7 @@ To try to improve the performance of simple P controllers, we decided to use the
 Just as before, we first try to maintain constant linear speed, and then, try to modulate it depending on the computed angular velocity. With a constant speed of 5.5, the circuit was completed in around 2:14 minutes with a pretty stable position. Its behaviour on curve was sharp, however, more fluctuations where seen on straight lines, where it took some more time to reach the equilibrium. On the other hand, changing linear speed show no real improvement, resulting in bigger fluctuations and, therefore, a bigger time (3:20min).
 
 
-[PD-controller constant speed](https://github.com/brodgon/brodgon.github.io/blob/master/docs/pd_cte.gif?raw=true)
+[PD-controller constant speed](https://github.com/brodgon/brodgon.github.io/blob/master/docs/pd_cote.gif?raw=true)
 ![PD-controller changing speed](https://github.com/brodgon/brodgon.github.io/blob/master/docs/pd_changing.gif?raw=true)
 
 
@@ -108,7 +108,7 @@ Last, but not least, we introduced the integral component, in order to try to ob
 
 As seen, behaviour is usually better when linear speed is mantained constant, showing less fluctuations in straight lines and smooth behaviours in curves. However, using this approach we are not getting all the potential of the car when we are positioned on a straight line. We will therefore need to find a way to solve this problem.
 
-[PID-controller constant speed](https://github.com/brodgon/brodgon.github.io/blob/master/docs/pid_constant.gif?raw=true)
+[PID-controller constant speed](https://github.com/brodgon/brodgon.github.io/blob/master/docs/pid_cte.gif?raw=true)
 ![PID-controller changing speed](https://github.com/brodgon/brodgon.github.io/blob/master/docs/pid_changing.gif?raw=true)
 
 

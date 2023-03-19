@@ -124,6 +124,6 @@ Since we have all the points delineating the line, we take the highest pixel det
 
 To avoid possible circuit exercises, the straight line (or stable position) was constrained a little bit more: the car will only activate the fastest mode if we are around the ideal point.
 
-The result of this approach is illustrated on the video below. As seen less fluctuations are made than in other scenarios, obtaining a time of between 1:50-2:03 min (depending on the simulation runed).
+The result of this approach is illustrated on the video [clickin on this link](https://urjc-my.sharepoint.com/:v:/g/personal/b_rodriguezg_2018_alumnos_urjc_es/EbzIf7PitTVIm-iw9wlH9fMBH0IhHyuLRf731LQizTqGww?e=gNtytn). As seen less fluctuations are made than in other scenarios, obtaining a time of between 1:50-2:03 min (depending on the simulation runed).
 
 ## Discussion: Flaws and improvements 
